@@ -5,7 +5,10 @@ import {UserRouter} from './routes/user.js';
 import cors from 'cors'
 import cookieParser from 'cookie-parser';
 
+
 dotenv.config()
+
+let url="mongodb+srv://maradadivyasree:kaMkHt6lw5mZPt1x@cluster0.2abgm7s.mongodb.net/"
 
 const app=express()
 app.use(express.json())
@@ -15,8 +18,11 @@ app.use(cors({
 }))
 app.use('/auth',UserRouter)
 app.use(cookieParser())
-mongoose.connect('mongodb://127.0.0.1:27017/authentication')
+mongoose.connect(url)
 
 app.listen(process.env.PORT,()=>{
     console.log("Server is ")
 })
+
+
+// kaMkHt6lw5mZPt1x
